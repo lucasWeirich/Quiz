@@ -11,23 +11,28 @@ user: {
 
 <-- -------------------------------------------------------------- -->
 
-sala: {
+room: {
  id: (primary key),
- idDono: (foreing key),
- participantes: [
-  {id: 2, pontuacao: 85},
-  {id: 5, pontuacao: 60}
- ],
+ idAdm: (foreing key),
  password: 'senha' (bcrypt),
  status: true
 }
 
 <-- -------------------------------------------------------------- -->
 
-pergunta: {
+participation: {
  id: (primary key),
- idSala: (foreing key),
- pergunta: (text),
+ idRoom: (foreing key),
+ idUser: (foreing key),
+ punctuation: 80
+}
+
+<-- -------------------------------------------------------------- -->
+
+question: {
+ id: (primary key),
+ idRoom: (foreing key),
+ statement: (text),
  tempo: {
   tempoResponde: true,
   tempo: (3 minutos)
@@ -36,10 +41,10 @@ pergunta: {
 
 <-- -------------------------------------------------------------- -->
 
-resposta: {
+answer: {
  id (primay key),
- idPergunta (foreing kei),
- alternativas: [
+ idQuestion (foreing kei),
+ alternatives: [
   {id: 'a', text: 'alternativa01', status: false},
   {id: 'b', text: 'alternativa02', status: true},
   {id: 'c', text: 'alternativa03', status: false},
