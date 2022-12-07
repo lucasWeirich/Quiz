@@ -1,0 +1,48 @@
+User 1,1 -------> 1,N sala 1,1 -------> 1,N pergunta 1,1 -------> 1,1 resposta
+
+<-- -------------------------------------------------------------- -->
+
+user: {
+ id: (primary key),
+ name: 'nome',
+ username: 'username',
+ password: 'password' (bcrypt)
+}
+
+<-- -------------------------------------------------------------- -->
+
+sala: {
+ id: (primary key),
+ idDono: (foreing key),
+ participantes: [
+  {id: 2, pontuacao: 85},
+  {id: 5, pontuacao: 60}
+ ],
+ password: 'senha' (bcrypt),
+ status: true
+}
+
+<-- -------------------------------------------------------------- -->
+
+pergunta: {
+ id: (primary key),
+ idSala: (foreing key),
+ pergunta: (text),
+ tempo: {
+  tempoResponde: true,
+  tempo: (3 minutos)
+ }
+}
+
+<-- -------------------------------------------------------------- -->
+
+resposta: {
+ id (primay key),
+ idPergunta (foreing kei),
+ alternativas: [
+  {id: 'a', text: 'alternativa01', status: false},
+  {id: 'b', text: 'alternativa02', status: true},
+  {id: 'c', text: 'alternativa03', status: false},
+  {id: 'd', text: 'alternativa04', status: false}
+ ]
+}
