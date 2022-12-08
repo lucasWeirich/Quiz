@@ -3,4 +3,5 @@ module.exports = (app) => {
     require('./room')(app);
     require('./question')(app);
     require('./answer')(app);
+    require('./participation')(app);
 }

@@ -3,4 +3,5 @@ module.exports = {
     room: require('./Room'),
     question: require('./Question'),
     answer: require('./Answer'),
+    participation: require('./Participation'),
 };
