@@ -80,6 +80,19 @@ module.exports = class Dao {
     }
 
     //----------------------------------------
+    // Update status
+    updateStatus(id, values) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const result = await this.#db.execute(this.#queries.update, [...values, id]);
+                resolve(result)
+            } catch (err) {
+                reject(err);
+            }
+        });
+    }
+
+    //----------------------------------------
     // Delete
     delete(id) {
         return new Promise(async (resolve, reject) => {
