@@ -20,15 +20,15 @@ module.exports = class Room extends Dao {
 
     //----------------------------------------------------------------------------
     //
-    constructor(database, services) {
+    constructor(database, room) {
         super(database, queries);
 
-        if (services) {
-            this.#id = services.id;
-            this.#idAdm = services.idAdm;
-            this.#name = services.name;
-            this.#password = services.password;
-            this.#status = services.status;
+        if (room) {
+            this.#id = room.id;
+            this.#idAdm = room.idAdm;
+            this.#name = room.name;
+            this.#password = room.password;
+            this.#status = room.status;
         }
     }
 
