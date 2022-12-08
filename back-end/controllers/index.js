@@ -3,5 +3,6 @@ module.exports = (app) => {
         user: require('./user')(app),
         room: require('./room')(app),
         question: require('./question')(app),
+        answer: require('./answer')(app),
     };
 }
