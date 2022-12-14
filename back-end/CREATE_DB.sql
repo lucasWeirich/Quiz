@@ -16,7 +16,7 @@ flush privileges;
 create table if not exists quiz.user(
 	id integer primary key auto_increment,
     name varchar(50) not null,
-    username varchar(20) not null,
+    username varchar(20) not null unique,
     password varchar(255) not null,
     date_created datetime default  now()
 );
@@ -96,7 +96,7 @@ create table quiz.answer(
     foreign key (idQuestion) references quiz.question(id)
 );
 
-INSERT INTO quiz.answer (idQuestion, alternatives) VALUES(2, '[{"id":"a","text":"89","status":false},{"id":"b","text":"81","status":true},{"id":"c","text":"39","status":false},{"id":"d","text":"77","status":false}]');
+INSERT INTO quiz.answer (idQuestion, alternatives) VALUES(1, '[{"id":"a","text":"89","status":false},{"id":"b","text":"81","status":true},{"id":"c","text":"39","status":false},{"id":"d","text":"77","status":false}]');
 select * from quiz.answer;
 drop table quiz.answer;
 

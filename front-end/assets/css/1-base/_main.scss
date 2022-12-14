@@ -5,7 +5,7 @@ $Container: reset.toRem(1380); // Adicionar 40px no valor do container para uso 
 
 
 // VARIABLES COLORS
-$ColorMain: #2a2a28;
+$ColorMain: #29282a;
 $ColorZero: #3a3a38;
 $ColorSecond: #1e1e1e;
 $ColorOne: #0f0f0f;
@@ -51,6 +51,11 @@ body {
   
   &::-webkit-scrollbar-thumb {
       background-color: $ColorOne;
+  }
+
+  & main {
+   position: static;
+   z-index: 1;
   }
 }
 

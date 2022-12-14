@@ -1,0 +1,504 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
+/*RESET*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-size-adjust: none;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+abbr {
+  text-decoration: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+body {
+  background-size: 100%;
+  line-height: 1.3;
+  cursor: default;
+}
+
+a {
+  transition: 0.3s all;
+  text-decoration: none;
+  color: #3da6c8;
+}
+
+/*
+  ========================================
+  Typography
+  ========================================
+*/
+b,
+strong {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+/*
+  ========================================
+  Img
+  ========================================
+*/
+img,
+picture,
+video,
+embed,
+object {
+  max-width: 100%;
+}
+
+img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/**/
+body {
+  background: #29282a;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+}
+body * {
+  color: #fff;
+}
+body::-webkit-scrollbar {
+  width: 5px;
+  background-color: #bfbfbf;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #0f0f0f;
+}
+body main {
+  position: static;
+  z-index: 1;
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  margin-bottom: 20px;
+  font-size: 0.875rem;
+}
+
+/*CONTAINER*/
+.container {
+  margin: 0 auto;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* DESKTOP LARGE - 1400px*/
+/* DESKTOP - 1200px*/
+/* LAPTOP - 1024px*/
+/* TABLET BIG - 900px*/
+/* TABLET - 600px*/
+/* MOBILE - 400px*/
+/* 
+  ================================
+  HEADER
+  ================================
+*/
+/* 
+  ================================
+  HOME
+  ================================
+*/
+/* 
+  ================================
+  LOGIN
+  ================================
+*/
+.login main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login main .__display {
+  width: 100%;
+  max-width: 850px;
+  height: 40vh;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login main .__display .--item {
+  width: 50%;
+  height: inherit;
+  padding: 20px;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login main .__display .--item.--active {
+  scale: 1.1;
+  border-radius: 20px;
+}
+.login main .__display .--item:not(.--active) {
+  opacity: 0.6;
+  z-index: -1;
+}
+.login main .__display .--item .__titleMain {
+  text-align: center;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.login main .__display .--item .__titleMain span {
+  color: #8429c1;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.login main .__display .--updateScreen {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8429c1;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  transition: all 0.5s;
+  z-index: 99;
+}
+.login main .__display .--updateScreen svg {
+  transition: all 0.5s;
+}
+.login main .__display .--updateScreen:hover {
+  background: #fff;
+}
+.login main .__display .--updateScreen:hover svg {
+  fill: #8429c1;
+}
+.login main .__display .__singin {
+  border-radius: 20px 0 0 20px;
+  background-color: #54adf7;
+}
+.login main .__display .__new {
+  border-radius: 0 20px 20px 0;
+  background-color: #34b986;
+}
+
+/* 
+  ================================
+  FORM
+  ================================
+*/
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+form .inputs {
+  width: 100%;
+  display: flex;
+}
+form .inputs input, form .inputs textarea, form .inputs select {
+  width: 100%;
+  max-width: 220px;
+  height: 35px;
+  margin: auto;
+  margin-bottom: 20px;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  padding: 0 15px;
+  color: #666;
+}
+form .button {
+  position: relative;
+}
+form .button input, form .button button {
+  padding: 6px 25px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 10px;
+  background-color: #8429c1;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+form .button input:hover, form .button button:hover {
+  background-color: #247bc2;
+  scale: 1.1;
+}
+
+/* 
+  ================================
+  ALERT
+  ================================
+*/
+.__alert {
+  width: 100%;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+  position: fixed;
+  top: 15px;
+  right: 0px;
+  opacity: 0;
+  z-index: -99999;
+  transition: all 0.3s;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  font-weight: 300;
+}
+.__alert.--active {
+  opacity: 1;
+  z-index: 99999;
+  animation: effect-active 0.3s;
+  animation-iteration-count: 2;
+}
+.__alert.--active.--ok {
+  background-color: #24932a;
+  box-shadow: 0 0 15px #24932a;
+}
+.__alert.--active.--error {
+  background-color: #7c1a0a;
+  box-shadow: 0 0 15px #7c1a0a;
+}
+.__alert.--active.--info {
+  background-color: #93672e;
+  box-shadow: 0 0 15px #93672e;
+}
+
+@keyframes effect-active {
+  0% {
+    right: 0;
+  }
+  25% {
+    right: -5px;
+  }
+  50% {
+    right: 0;
+  }
+  75% {
+    right: -5px;
+  }
+  100% {
+    right: 0;
+  }
+}
+.--background_animated {
+  background: #4e54c8;
+  background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
+  width: 100%;
+  height: 100vh;
+}
+.--background_animated .--circles_background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.--background_animated .--circles_background li {
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animateBackground 25s linear infinite;
+  bottom: -150px;
+}
+.--background_animated .--circles_background li:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+.--background_animated .--circles_background li:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+.--background_animated .--circles_background li:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+.--background_animated .--circles_background li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+.--background_animated .--circles_background li:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+.--background_animated .--circles_background li:nth-child(6) {
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+.--background_animated .--circles_background li:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+.--background_animated .--circles_background li:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+.--background_animated .--circles_background li:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+.--background_animated .--circles_background li:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes animateBackground {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -8,64 +8,48 @@
 */
 
 form {
-    @include main.FlexBetCen;
-    flex-wrap: wrap;
+    @include main.FlexCenCen;
+    flex-direction: column;
 
     & .inputs {
-        width: 48%;
+        width: 100%;
+        display: flex;
 
         & input,
         & textarea,
         & select {
             width: 100%;
-            height: 30px;
-            @include main.FlexCenCen;
-            margin-bottom: 10px;
+            max-width: 220px;
+            height: 35px;
+            margin: auto;
+            margin-bottom: 20px;
             border: none;
             outline: none;
-            background-color: main.$ColorZero;
-            border-bottom: solid 1px main.$ColorSecond;
-
-            &:disabled {
-                opacity: 0.6;
-                cursor: no-drop;
-            }
+            border-radius: 15px;
+            padding: 0 15px;
+            color: #666;
         }
+    }
 
-        & label {
-            font-size: reset.toRem(13);
-            letter-spacing: 1px;
-            padding-left: 2px;
-        }
+    & .button {
+        position: relative;
 
-        &.--search {
-            width: 500px;
-            position: relative;
+        & input,
+        & button {
+            padding: 6px 25px;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: reset.toRem(15);
+            font-weight: 600;
+            border-radius: 10px;
+            background-color: #8429c1;
+            cursor: pointer;
+            transition: all 0.2s;
 
-            & input,
-            & textarea,
-            & select {
-                height: 40px;
-                border-radius: 5px;
-                padding-left: 20px;
-                padding-right: 35px;
-                margin-bottom: 0;
-            }
-
-            & input[type="submit"] {
-                width: 40px;
-                height: 40px;
-                border: none;
-                cursor: pointer;
-                background: url('../img/search.svg') no-repeat center;
-                position: absolute;
-                top: 0;
-                right: 0;
-                transition: all 0.5s;
-
-                &:hover {
-                    background-color: main.$ColorSecond;
-                }
+            &:hover {
+                background-color: #247bc2;
+                scale: 1.1;
             }
         }
     }

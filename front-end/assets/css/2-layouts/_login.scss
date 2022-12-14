@@ -13,32 +13,79 @@
         height: 100vh;
         @include main.FlexCenCen;
 
-        & .__form {
-            width: 90%;
-            max-width: 450px;
+        & .__display {
+            width: 100%;
+            max-width: 850px;
+            height: 40vh;
             border-radius: 20px;
-            box-shadow: 0 0 20px main.$ColorZero;
-            padding: 20px;
+            @include main.FlexCenCen;
 
-            & h2 {
-                font-size: reset.toRem(20);
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
-            & form {
-                display: flex;
+            & .--item {
+                width: 50%;
+                height: inherit;
+                padding: 20px;
+                transition: all 0.5s;
+                @include main.FlexCenCen;
                 flex-direction: column;
 
-                & .inputs {
-                    width: 90%;
-                    max-width: 300px;
+                &.--active {
+                    scale: 1.1;
+                    border-radius: 20px;
+                }
 
-                    & input {
-                        border-radius: 10px;
-                        padding-left: 20px;
+                &:not(.--active) {
+                    opacity: 0.6;
+                    z-index: -1;
+                }
+
+                & .__titleMain {
+                    text-align: center;
+                    font-size: reset.toRem(20);
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    margin-bottom: 40px;
+
+                    & span {
+                        color: #8429c1;
+                        font-weight: 600;
+                        font-size: reset.toRem(18);
                     }
                 }
+            }
+
+            & .--updateScreen {
+                width: 30px;
+                height: 30px;
+                @include main.FlexCenCen;
+                background-color: #8429c1;
+                border-radius: 50%;
+                cursor: pointer;
+                position: absolute;
+                transition: all 0.5s;
+                z-index: 99;
+
+                & svg {
+                    transition: all 0.5s;
+                }
+
+                &:hover {
+                    background: #fff;
+
+                    & svg {
+                        fill: #8429c1;
+                    }
+                }
+            }
+
+            & .__singin {
+                border-radius: 20px 0 0 20px;
+                background-color: #54adf7;
+            }
+
+            & .__new {
+                border-radius: 0 20px 20px 0;
+                background-color: #34b986;
+
             }
         }
     }
