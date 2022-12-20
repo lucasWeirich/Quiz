@@ -1,9 +1,9 @@
 const Dao = require('./Dao');
 
 const queries = {
-    getAll: 'SELECT * FROM quiz.user order by id desc;',
-    getOne: 'SELECT * FROM quiz.user WHERE id=?;',
-    getSearch: 'SELECT * FROM quiz.user WHERE name LIKE ?;',
+    getAll: 'SELECT user.id as id, user.name as name, user.username as username, user.date_created as date_created FROM quiz.user order by id desc;',
+    getOne: 'SELECT user.id as id, user.name as name, user.username as username, user.date_created as date_created FROM quiz.user WHERE id=?;',
+    getSearch: 'SELECT * FROM quiz.user WHERE username LIKE ?;',
     insert: 'INSERT INTO quiz.user (name, username, password) VALUES(?,?,?);',
     update: 'UPDATE quiz.user SET email=?,senha=? WHERE idUsuario=?;',
     delete: 'DELETE FROM quiz.user WHERE idUsuario=?;'

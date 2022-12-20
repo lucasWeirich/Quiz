@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 /*RESET*/
 *,
@@ -159,7 +160,7 @@ img {
 
 /**/
 body {
-  background: #29282a;
+  background: #8429c1;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   letter-spacing: 0px;
@@ -174,9 +175,14 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #0f0f0f;
 }
-body main {
-  position: static;
+body main, body header, body footer {
+  position: relative;
   z-index: 1;
+}
+
+::selection {
+  background: #fff;
+  color: #8429c1;
 }
 
 p {
@@ -193,6 +199,117 @@ p {
   margin: 0 auto;
   padding-left: 20px !important;
   padding-right: 20px !important;
+  max-width: 86.25rem;
+}
+
+/* INPUT RADIO */
+.inputs-radio {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.inputs-radio input[type=radio]:checked, .inputs-radio input[type=radio]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+.inputs-radio input[type=radio]:checked + label, .inputs-radio input[type=radio]:not(:checked) + label {
+  font-size: 0.875rem;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #fff;
+}
+.inputs-radio input[type=radio]:checked + label::before, .inputs-radio input[type=radio]:not(:checked) + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+.inputs-radio input[type=radio]:checked + label::after, .inputs-radio input[type=radio]:not(:checked) + label::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  background: #8429c1;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.inputs-radio input[type=radio]:disabled + label {
+  color: rgba(153, 153, 153, 0.6);
+  cursor: no-drop;
+}
+.inputs-radio input[type=radio]:disabled + label::before {
+  background: #f3f3f3;
+}
+.inputs-radio input[type=radio]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+.inputs-radio input[type=radio]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/* INPUT CHECKBOX */
+.inputs-check input {
+  display: flex;
+  align-items: center;
+}
+.inputs-check input[type=checkbox] {
+  display: none !important;
+}
+.inputs-check input[type=checkbox] + label {
+  display: flex;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+  color: #666666;
+}
+.inputs-check input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+.inputs-check input[type=checkbox] + label:before {
+  content: "✔";
+  border: 0.1em solid #000;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: 0.2s;
+}
+.inputs-check input[type=checkbox]:checked + label:before {
+  background-color: #6fc06c;
+  border-color: #6fc06c;
+  color: #fff;
+}
+.inputs-check input[type=checkbox]:disabled + label {
+  color: rgba(153, 153, 153, 0.6);
+  cursor: no-drop;
+}
+.inputs-check input[type=checkbox]:disabled + label::before {
+  background: #f3f3f3;
+  transform: scale(1);
+  border-color: #aaa;
+}
+.inputs-check input[type=checkbox] input[type=checkbox]:checked:disabled + label:before {
+  transform: scale(1);
+  background-color: #6fc06c;
+  border-color: #6fc06c;
 }
 
 /* DESKTOP LARGE - 1400px*/
@@ -206,11 +323,100 @@ p {
   HEADER
   ================================
 */
+header {
+  box-shadow: 0 0 20px #767ce4;
+}
+header .container {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .container .__user {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+header .container .__user a {
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+header .container .__user a:hover {
+  color: #000;
+  scale: 1.2;
+}
+
 /* 
   ================================
   HOME
   ================================
 */
+.home .container .__display {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.home .container .__display .__item {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px #bfbfbf;
+  border-radius: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.home .container .__display .__item:hover {
+  background-color: #8429c1;
+  box-shadow: 0 0 10px #2489d8;
+  scale: 1.1;
+}
+.home .container .__subTitle {
+  margin: 30px 0;
+}
+.home .container .__all_rooms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.home .container .__all_rooms .__room {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #2489d8;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.home .container .__all_rooms .__room .--options {
+  display: flex;
+  gap: 10px;
+}
+.home .container .__all_rooms .__room .--options > a {
+  cursor: pointer;
+}
+.home .container .__all_rooms .__room .--options > a.--status {
+  width: 25px;
+}
+.home .container .__all_rooms .__room .--options > a.--status.--open {
+  background: url("../img/icons/lock_open.svg") no-repeat center;
+}
+.home .container .__all_rooms .__room .--options > a.--status.--close {
+  background: url("../img/icons/lock.svg") no-repeat center;
+}
+.home .container .__all_rooms .__room:hover {
+  background: #0f78c7;
+}
+
 /* 
   ================================
   LOGIN
@@ -307,6 +513,7 @@ form {
 form .inputs {
   width: 100%;
   display: flex;
+  flex-direction: column;
 }
 form .inputs input, form .inputs textarea, form .inputs select {
   width: 100%;
@@ -320,8 +527,13 @@ form .inputs input, form .inputs textarea, form .inputs select {
   padding: 0 15px;
   color: #666;
 }
+form .inputs span {
+  font-size: 0.9375rem;
+  margin-bottom: 5px;
+}
 form .button {
   position: relative;
+  margin: 10px 0;
 }
 form .button input, form .button button {
   padding: 6px 25px;
@@ -499,6 +711,101 @@ form .button input:hover, form .button button:hover {
     opacity: 0;
     border-radius: 50%;
   }
+}
+/* 
+  ================================
+  LOADER
+  ================================
+*/
+#loader-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.631372549);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -999;
+  overflow: hidden;
+  opacity: 0;
+}
+#loader-wrapper.--active {
+  z-index: 999;
+  opacity: 1;
+}
+#loader-wrapper .loader {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  top: 50%;
+  margin-top: -20px;
+}
+#loader-wrapper .loader:before, #loader-wrapper .loader:after {
+  content: "";
+  height: 40px;
+  width: 40px;
+  border: 8px solid rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+}
+#loader-wrapper .loader:before {
+  animation: animate 2s infinite linear;
+}
+#loader-wrapper .loader:after {
+  animation: animate2 2s infinite linear;
+}
+@keyframes animate {
+  100% {
+    transform: rotate(180deg) skew(360deg);
+  }
+}
+@keyframes animate2 {
+  100% {
+    transform: rotate(-180deg) skew(-360deg);
+  }
+}
+
+/* 
+  ================================
+  POPUP
+  ================================
+*/
+.__popup {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(35, 38, 99, 0.6392156863);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9999;
+  opacity: 0;
+  visibility: collapse;
+}
+.__popup.--active {
+  opacity: 1;
+  z-index: 99999;
+  visibility: visible;
+  transition: all 0.5s;
+}
+.__popup .close {
+  width: 100%;
+  height: 100vh;
+}
+.__popup .__content {
+  background-color: #4e54c8;
+  box-shadow: 0 0 20px #4e54c8;
+  border-radius: 20px;
+  padding: 40px;
+}
+.__popup .__content .titleMain {
+  font-size: 1.125rem;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
 /*# sourceMappingURL=style.css.map */

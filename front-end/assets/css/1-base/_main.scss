@@ -5,7 +5,7 @@ $Container: reset.toRem(1380); // Adicionar 40px no valor do container para uso 
 
 
 // VARIABLES COLORS
-$ColorMain: #29282a;
+$ColorMain: #8429c1;
 $ColorZero: #3a3a38;
 $ColorSecond: #1e1e1e;
 $ColorOne: #0f0f0f;
@@ -44,21 +44,27 @@ body {
       color: #fff;
    }
 
-  &::-webkit-scrollbar {
+   &::-webkit-scrollbar {
       width: 5px;
       background-color: $ColorThree;
-  }
-  
-  &::-webkit-scrollbar-thumb {
-      background-color: $ColorOne;
-  }
+   }
 
-  & main {
-   position: static;
-   z-index: 1;
-  }
+   &::-webkit-scrollbar-thumb {
+      background-color: $ColorOne;
+   }
+
+   & main,
+   & header,
+   & footer {
+      position: relative;
+      z-index: 1;
+   }
 }
 
+::selection {
+   background: #fff;
+   color: $ColorMain;
+}
 p {
    font-family: 'Poppins', sans-serif;
    line-height: 1.5;
@@ -134,5 +140,5 @@ p {
    margin: 0 auto;
    padding-left: 20px !important;
    padding-right: 20px !important;
-   //max-width: $Container;
+   max-width: $Container;
 }

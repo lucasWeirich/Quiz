@@ -7,4 +7,30 @@
   ================================
 */
 
-header {}
+header {
+  box-shadow: 0 0 20px #767ce4;
+
+  & .container {
+    height: 70px;
+    @include main.FlexBetCen;
+
+    & .__logo {}
+
+    & .__user {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+
+      & a {
+        font-size: reset.toRem(12);
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &:hover {
+          color: #000;
+          scale: 1.2;
+        }
+      }
+    }
+  }
+}

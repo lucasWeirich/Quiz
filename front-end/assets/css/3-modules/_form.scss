@@ -14,6 +14,7 @@ form {
     & .inputs {
         width: 100%;
         display: flex;
+        flex-direction: column;
 
         & input,
         & textarea,
@@ -29,10 +30,16 @@ form {
             padding: 0 15px;
             color: #666;
         }
+
+        & span {
+            font-size: reset.toRem(15);
+            margin-bottom: 5px;
+        }
     }
 
     & .button {
         position: relative;
+        margin: 10px 0;
 
         & input,
         & button {

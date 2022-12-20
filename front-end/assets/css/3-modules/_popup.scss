@@ -1,0 +1,46 @@
+@use '../1-base/main.scss';
+@use '../1-base/reset.scss';
+
+/* 
+  ================================
+  POPUP
+  ================================
+*/
+
+.__popup {
+    width: 100%;
+    height: 100vh;
+    @include main.FlexCenCen;
+    background-color: #232663a3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -9999;
+    opacity: 0;
+    visibility: collapse;
+    
+    &.--active {
+        opacity: 1;
+        z-index: 99999;
+        visibility: visible;
+        transition: all 0.5s;
+    }
+
+    & .close {
+        width: 100%;
+        height: 100vh;
+    }
+
+    & .__content {
+        background-color: #4e54c8;
+        box-shadow: 0 0 20px #4e54c8;
+        border-radius: 20px;
+        padding: 40px;
+
+        & .titleMain {
+            font-size: reset.toRem(18);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    }
+}

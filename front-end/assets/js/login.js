@@ -86,10 +86,6 @@ function validationsNewUser(body) {
         alertMessage('Preencha todos os campos!', '--info');
         return false;
     }
-    if (body.name === '' || body.username === '' || body.password === '') {
-        alertMessage('Preencha todos os campos!', '--info');
-        return false;
-    }
     // ------------------------------
     // validate business rules
     if (body.name.length < 5 || body.name.length > 50) {

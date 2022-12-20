@@ -12,6 +12,7 @@ const API = {
 // -----------------------------------------------------------------
 // Function all Request
 async function allRequest(route, method, body) {
+    loader('open');
     const request = await fetch(`${API.url}${route}`, {
         method: method,
         headers: API.headers,
@@ -23,12 +24,14 @@ async function allRequest(route, method, body) {
 
     if (response.token !== undefined && request.url.includes('/user_login')) {
         sessionStorage.setItem('token', response.token);
+        sessionStorage.setItem('user', response.idUser);
         window.location = 'index.html';
         alertMessage(response.message, '--ok');
         return;
     }
 
     clearInputs();
+    loader();
     return response;
 }
 
@@ -38,19 +41,28 @@ function validationsRequest(req, res) {
     if (!req.ok) {
         alertMessage(`${res.message}: ${res.error}`, '--error');
 
-        if (req.url.include('/user_login') || req.url.include('/user_add')) return;
-
         if (req.status === 401) {
             let html = document.querySelector('main');
             html.innerHTML = '';
             sessionStorage.removeItem('token');
             setInterval(() => {
                 window.location = 'login.html';
-            }, 2000)
+            }, 2000);
         }
         return;
     }
     if (res.message) alertMessage(res.message, '--info');
+}
+
+// -----------------------------------------------------------------
+// Get data user
+async function getDataUser(id) {
+    const user = await allRequest(`user/${id}`, 'get');
+
+    const html_name = document.querySelectorAll('.--name-user');
+    html_name.forEach(i => {
+        i.innerHTML = user.name;
+    });
 }
 
 // -----------------------------------------------------------------
@@ -60,6 +72,45 @@ function clearInputs() {
     inputs.forEach(i => {
         i.value = '';
     });
+}
+
+// -----------------------------------------------------------------
+// Function logoff user
+function logoffUser() {
+    sessionStorage.clear('token', '');
+    window.location = 'login.html';
+}
+
+// -----------------------------------------------------------------
+// Function loader
+function loader(func) {
+    let loader = document.getElementById('loader-wrapper');
+    switch (func) {
+        case 'open':
+            loader.classList.add('--active');
+            break;
+
+        default:
+            loader.classList.remove('--active');
+            break;
+    }
+}
+
+// -----------------------------------------------------------------
+// Function open popups
+function openPopups(type) {
+    const popup = document.querySelector(`.__popup.--${type}`);
+    popup.classList.add('--active');
+    popup.addEventListener('click', function (e) {
+        if (e.target === popup) popup.classList.remove('--active');
+    });
+}
+
+// -----------------------------------------------------------------
+// Function add params of URL
+function addParamsURL(nameParam, valueParam) {
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set(nameParam, valueParam);
 }
 
 // -----------------------------------------------------------------

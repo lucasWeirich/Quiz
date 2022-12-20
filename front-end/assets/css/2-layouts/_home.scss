@@ -7,4 +7,74 @@
   ================================
 */
 
-.home {}
+.home {
+  & .container {
+    & .__display {
+      margin-top: 50px;
+      @include main.FlexCenCen;
+      gap: 30px;
+
+      & .__item {
+        width: 200px;
+        height: 200px;
+        @include main.FlexCenCen;
+        flex-direction: column;
+        box-shadow: 0 0 10px main.$ColorThree;
+        border-radius: 20px;
+        transition: all 0.5s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: main.$ColorMain;
+          box-shadow: 0 0 10px main.$ColorFour;
+          scale: 1.1;
+        }
+      }
+    }
+
+    & .__subTitle {
+      margin: 30px 0;
+    }
+
+    & .__all_rooms {
+      @include main.FlexCenCen;
+      flex-direction: column;
+      gap: 20px;
+
+      & .__room {
+        width: 100%;
+        @include main.FlexBetCen;
+        border-radius: 20px;
+        background-color: main.$ColorFour;
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        & .--options {
+          display: flex;
+          gap: 10px;
+
+          &>a {
+            cursor: pointer;
+
+            &.--status {
+              width: 25px;
+
+              &.--open {
+                background: url('../img/icons/lock_open.svg') no-repeat center;
+              }
+
+              &.--close {
+                background: url('../img/icons/lock.svg') no-repeat center;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          background: #0f78c7;
+        }
+      }
+    }
+  }
+}

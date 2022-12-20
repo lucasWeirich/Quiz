@@ -44,11 +44,20 @@ module.exports = function (app) {
                 expiresIn: 4 * 3600 // Válido até 4 horas
             });
 
-            return res.status(200).json({ message: 'Login realizado com sucesso!', token: token });
+            return res.status(200).json({ message: 'Login realizado com sucesso!', token: token, idUser: user.id });
 
         } catch (err) {
             res.status(500).json({ message: 'Error ao adicionar usuário!', error: String(err) });
         }
+    };
+
+    //----------------------------------------------------------------------------------
+    // GET:id /user
+    controller.getUser = function (req, res) {
+        new app.models.user(req.dbConn)
+            .getOne(req.params.id)
+            .then(result => res.status(200).json(result))
+            .catch(err => res.status(500).json({ error: err }))
     };
 
     return controller;

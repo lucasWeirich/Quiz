@@ -48,7 +48,7 @@ module.exports = (app) => {
     };
     
     //----------------------------------------------------------------------------------
-    // PATCH /room
+    // PUT /room
     controller.patchRoom = function (req, res) {
         new app.models.room(req.dbConn, req.body)
             .updateStatus(req.params.id)
